@@ -1,0 +1,14 @@
+{
+  "name": "swag-functions",
+  "version": "0.1.0",
+  "description": "Collection of Lambda functions that help maintain a SWAG installation",
+  "main": "src/index.js",
+  "author": "Kevin Glisson",
+  "devDependencies": {
+    "eslint": "^3.19.0"
+  },
+  "dependencies": {
+    "serverless-prune-plugin": "^1.1.1",
+    "serverless-python-requirements": "^2.5.0"
+  }
+}
