@@ -37,7 +37,7 @@ def handler(event, context):
     swag_v2 = SWAGManager(**parse_swag_config_options(swag_opts_v2))
 
     for record in event['Records']:
-        logger.info('Processing stream record...')
+        logger.info('Processing stream record. Record: {}'.format(record))
 
         if record['eventName'] in ['INSERT', 'MODIFY']:
             new = record['dynamodb']['NewImage']
