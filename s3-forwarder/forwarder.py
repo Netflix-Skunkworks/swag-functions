@@ -8,7 +8,7 @@ import logging
 
 import boto3
 from boto3.dynamodb.types import TypeDeserializer
-import json
+import simplejson as json
 
 from retrying import retry, RetryError
 from swag_client.backend import SWAGManager
