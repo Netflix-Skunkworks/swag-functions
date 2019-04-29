@@ -11,7 +11,6 @@ from boto3.dynamodb.types import TypeDeserializer
 import simplejson as json
 
 from retrying import retry, RetryError
-from swag_client.backend import SWAGManager
 from swag_client.migrations.versions.v2 import downgrade
 from swag_client.util import parse_swag_config_options
 from raven_python_lambda import RavenLambdaWrapper
@@ -49,6 +48,7 @@ def dump_v2_to_v1_s3(namespace, all_accounts, swag_opts):
 
 @RavenLambdaWrapper()
 def handler(event, context):
+    from swag_client.backend import SWAGManager     # Importing here to invalidate cache.
     logger.debug("[ ] Starting SWAG dump to S3...")
     """Forwards Dynamodb table events to S3 and downgrades them as needed."""
     swag_v1_s3 = {
